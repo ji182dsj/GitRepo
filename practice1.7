@@ -1,0 +1,35 @@
+import os
+os.chdir('C:\Users\ASUS-PC\Documents\Tencent Files\1875450147\FileRecv')
+a = open('莎士比亚十四行诗.txt','r',encoding = 'UTF-8')
+b = a.read()
+words = b.split(' ')
+print(words)
+words_only = set(words)
+words_only = list(words_only)
+words.count(words_only[1])
+len(words_only)
+aa = [words.count(x) for x in words_only]
+dic_count = {index:words.count(index) for index in words_only}
+shunxu = sorted(dic_count.values())
+shunxu.count(1)
+
+import os
+import re
+os.getcwd()
+os.chdir('C:\Users\ASUS-PC\Documents\Tencent Files\1875450147\FileRecv')
+path = '莎士比亚十四行诗.txt'
+file = open(path,'r')
+text = file.read()   #读取文件，读成一个长字符串
+file.close()   # 读取完后关闭文件
+words = text.split() #将字符串打断成单词
+words1 = [word.lower() for word in words]  #将大写字母转换成小写的
+words2 = [re.sub("[,'.:;]",'',word) for word in words1] 
+words2 = [re.sub('[!?"]','',word) for word in words2] #去掉标点符号
+words3 = [re.sub('\\d','',word) for word in words2]  # 将字符中的数字变为空
+words4 = [word for word in words3 if word != '']
+words_index = set(words4)  #去重复
+dic = {index:words4.count(index) for index in words_index} #统计词频
+sorted(dic.items(),key=lambda asd:asd[1],reverse=True)    #排序
+help(sorted)
+
+words = [re.sub("[,;.']",'',words[i]) for i  in range(0,len(words))]
